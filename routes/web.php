@@ -9,3 +9,5 @@ Route::Get('/', function () {
 
 
 Route::Get("/posts", [PostController::class, 'index']);
+
+Route::Get("/posts/{post}", [PostController::class, 'show']);
