@@ -42,14 +42,14 @@
                 <tbody class="table-group-divider">
                 @foreach ($Posts as $post)
                     <tr>
-                        <td>{{ $post["ID"] }}</td>
-                        <td>{{ $post["Title"] }}</td>
-                        <td>{{ $post["Posted By"] }}</td>
-                        <td>{{ $post["Created At"] }}</td>
+                        <td>{{$post["ID"]}}</td>
+                        <td>{{$post["Title"]}}</td>
+                        <td>{{$post["Posted By"]}}</td>
+                        <td>{{$post["Created At"]}}</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-success">View</button>
-                            <button type="button" class="btn btn-sm btn-primary">Edit</button>
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                            <a href="{{route('posts.show', $post['ID'])}}" type="button" class="btn btn-sm btn-success">View</a>
+                            <a type="button" class="btn btn-sm btn-primary">Edit</a>
+                            <a type="button" class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
                 @endforeach

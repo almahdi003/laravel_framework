@@ -20,7 +20,7 @@
         <div class="container">
             <div class="d-flex align-items-center">
                 <a class="navbar-brand mb-0 h1" href="#">Codzilla Blog Posts</a>
-                <a class="nav-link active ms-4" href="#">All Posts</a>
+                <a class="nav-link active ms-4" href="{{route('posts.index')}}">All Posts</a>
             </div>
         </div>
     </nav>

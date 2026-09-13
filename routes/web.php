@@ -8,6 +8,6 @@ Route::Get('/', function () {
 });
 
 
-Route::Get("/posts", [PostController::class, 'index']);
+Route::Get("/posts", [PostController::class, 'index'])->name('posts.index');
 
-Route::Get("/posts/{post}", [PostController::class, 'show']);
+Route::Get("/posts/{post}", [PostController::class, 'show'])->name('posts.show');
