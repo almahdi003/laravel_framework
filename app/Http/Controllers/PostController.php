@@ -19,9 +19,20 @@ class PostController extends Controller
 
     public function show($postId)
     {
-        $new_post = ['ID' => 1, 'Title' => 'PHP', 'Description' => 'the best language for backend'];
+        $show_post = ['ID' => 1, 'Title' => 'PHP', 'Description' => 'the best language for backend'];
         $users    = ['Name' => 'Ali', 'Email' => 'ali@gmail.com', 'Created At' => '2026-09-10'];
 
-        return view('posts.show', ['post' => $new_post, 'user' => $users]);
+        return view('posts.show', ['post' => $show_post, 'user' => $users]);
     }
+
+    public function create()
+    {
+        $new_post = ['ID' => 1, 'Title' => 'PHP', 'Description' => 'the best language for backend'];
+        return view('posts.create', ['post' => $new_post]);
+    }
+
+    // public function store()
+    // {
+    //     return view('posts.store');
+    // }
 }
