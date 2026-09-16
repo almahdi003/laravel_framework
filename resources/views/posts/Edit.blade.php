@@ -1,10 +1,8 @@
 @extends('layouts.app')
-@section('title') Create @endsection
+@section('title') Edit Post @endsection
 @section ('content')
 
-
-<form method="POST" action="{{route('posts.store')}}" class="container" style="max-width: 80%; margin-top: 20px;">
-
+<form class="container" style="max-width: 80%; margin-top: 20px;">
 {{-- @csrf --}}
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
@@ -21,8 +19,7 @@
     <input type="text" class="form-control" id="posted_by" placeholder="Enter Your Name" name="posted_by">
   </div>
 
-  <button type="submit" class="btn btn-primary">Upload</button>
+  <button type="submit" class="btn btn-primary">Edit</button>
 
 </form>
 @endsection
-

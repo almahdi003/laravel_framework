@@ -31,8 +31,21 @@ class PostController extends Controller
         return view('posts.create', ['post' => $new_post]);
     }
 
-    // public function store()
-    // {
-    //     return view('posts.store');
-    // }
+    public function store()
+    {
+        $data =request()->all();
+
+        // $title = request()->title;
+        // $description = request()->description;
+        // $posted_by = request()->posted_by;
+        // dd($data, $title, $description, $posted_by);
+
+        return to_route('posts.index');
+    }
+
+    public function edit($postId)
+    {
+        return view('posts.edit');
+    }
+
 }

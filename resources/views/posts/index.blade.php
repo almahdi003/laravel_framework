@@ -28,8 +28,8 @@
                         <td>{{$post["Posted By"]}}</td>
                         <td>{{$post["Created At"]}}</td>
                         <td>
-                            <a href="{{route('posts.show', $post['ID'])}}" type="button" class="btn btn-sm btn-success">View</a>
-                            <a type="button" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="{{route('posts.show', $post['ID'])}}"  class="btn btn-sm btn-success">View</a>
+                            <a href="{{route('posts.edit', $post['ID'])}}" class="btn btn-sm btn-primary">Edit</a>
                             <a type="button" class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
