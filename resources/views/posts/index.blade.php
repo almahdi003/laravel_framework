@@ -30,7 +30,10 @@
                         <td>
                             <a href="{{route('posts.show', $post['ID'])}}"  class="btn btn-sm btn-success">View</a>
                             <a href="{{route('posts.edit', $post['ID'])}}" class="btn btn-sm btn-primary">Edit</a>
-                            <a type="button" class="btn btn-sm btn-danger">Delete</a>
+                            <form style="display: inline"  method="POST" action="{{route('posts.destroy',$post['ID'])}}">
+                                @method("DELETE")
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
