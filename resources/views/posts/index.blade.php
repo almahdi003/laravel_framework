@@ -24,7 +24,7 @@
                 @foreach ($Posts as $post)
                     <tr>
                         <td>{{$post["ID"]}}</td>
-                        <td>{{$post["Title"]}}</td>
+                        <td>{{$post["title"]}}</td>
                         <td>{{$post["Posted By"]}}</td>
                         <td>{{$post["Created At"]}}</td>
                         <td>

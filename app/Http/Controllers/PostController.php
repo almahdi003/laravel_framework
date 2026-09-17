@@ -10,16 +10,16 @@ class PostController extends Controller
     {
         $All_Posts = [
 
-            ['ID' => 1, 'Title' => 'First Post', 'Posted By' => 'Ali', 'Created At' => '2026-09-10'],
-            ['ID' => 2, 'Title' => 'Second Post', 'Posted By' => 'Mohamed', 'Created At' => '2026-09-11'],
-            ['ID' => 3, 'Title' => 'Third Post', 'Posted By' => 'Ahmed', 'Created At' => '2026-09-12'],
+            ['ID' => 1, 'title' => 'First Post', 'Posted By' => 'Ali', 'Created At' => '2026-09-10'],
+            ['ID' => 2, 'title' => 'Second Post', 'Posted By' => 'Mohamed', 'Created At' => '2026-09-11'],
+            ['ID' => 3, 'title' => 'Third Post', 'Posted By' => 'Ahmed', 'Created At' => '2026-09-12'],
         ];
         return view('posts.index', ['Posts' => $All_Posts]);
     }
 
     public function show($postId)
     {
-        $show_post = ['ID' => 1, 'Title' => 'PHP', 'Description' => 'the best language for backend'];
+        $show_post = ['ID' => 1, 'title' => 'PHP', 'description' => 'the best language for backend'];
         $users    = ['Name' => 'Ali', 'Email' => 'ali@gmail.com', 'Created At' => '2026-09-10'];
 
         return view('posts.show', ['post' => $show_post, 'user' => $users]);
@@ -27,7 +27,7 @@ class PostController extends Controller
 
     public function create()
     {
-        $new_post = ['ID' => 1, 'Title' => 'PHP', 'Description' => 'the best language for backend'];
+        $new_post = ['ID' => 1, 'title' => 'PHP', 'Description' => 'the best language for backend'];
         return view('posts.create', ['post' => $new_post]);
     }
 
