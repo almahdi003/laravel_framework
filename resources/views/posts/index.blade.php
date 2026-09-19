@@ -21,16 +21,16 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                @foreach ($Posts as $post)
+                    @foreach ($Posts as $post)
                     <tr>
-                        <td>{{$post["ID"]}}</td>
-                        <td>{{$post["title"]}}</td>
-                        <td>{{$post["Posted By"]}}</td>
-                        <td>{{$post["Created At"]}}</td>
+                        <td>{{$post->id}}</td>       {{-- <td>{{$post["id"]}}</td>  --}}
+                        <td>{{$post->title}}</td>    {{-- <td>{{$post["title"]}}</td> --}}
+                        <td>{{$post->Posted_By}}</td>
+                        <td>{{$post->Created_At}}</td>
                         <td>
-                            <a href="{{route('posts.show', $post['ID'])}}"  class="btn btn-sm btn-success">View</a>
-                            <a href="{{route('posts.edit', $post['ID'])}}" class="btn btn-sm btn-primary">Edit</a>
-                            <form style="display: inline"  method="POST" action="{{route('posts.destroy',$post['ID'])}}">
+                            <a href="{{route('posts.show', $post->id)}}"  class="btn btn-sm btn-success">View</a>
+                            <a href="{{route('posts.edit', $post->id)}}" class="btn btn-sm btn-primary">Edit</a>
+                            <form style="display: inline"  method="POST" action="{{route('posts.destroy',$post->id)}}">
                                 @method("DELETE")
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>

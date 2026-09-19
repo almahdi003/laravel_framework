@@ -2,43 +2,56 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\User;
+
 // use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $All_Posts = [
+        $postsFromDB = Post::all();
 
-            ['ID' => 1, 'title' => 'First Post', 'Posted By' => 'Ali', 'Created At' => '2026-09-10'],
-            ['ID' => 2, 'title' => 'Second Post', 'Posted By' => 'Mohamed', 'Created At' => '2026-09-11'],
-            ['ID' => 3, 'title' => 'Third Post', 'Posted By' => 'Ahmed', 'Created At' => '2026-09-12'],
-        ];
-        return view('posts.index', ['Posts' => $All_Posts]);
+        return view('posts.index', ['Posts' => $postsFromDB]);
     }
 
-    public function show($postId)
+    public function show(Post $post)
     {
-        $show_post = ['ID' => 1, 'title' => 'PHP', 'description' => 'the best language for backend'];
-        $users    = ['Name' => 'Ali', 'Email' => 'ali@gmail.com', 'Created At' => '2026-09-10'];
+        // dd($post);
 
-        return view('posts.show', ['post' => $show_post, 'user' => $users]);
+        // $singlePostFromDB = Post::find($postId); 
+        // $singlePostFromDB = Post::findOrFail($postId); // use to if bag is not fuond
+
+        // if (is_null($singlePostFromDB)){
+        //     return to_route('posts.index');
+        // }
+
+        return view('posts.show', ['post' => $post]);
     }
 
     public function create()
     {
-        $new_post = ['ID' => 1, 'title' => 'PHP', 'Description' => 'the best language for backend'];
-        return view('posts.create', ['post' => $new_post]);
+        // select * from users
+        $userFromDB = User::all();
+
+        return view('posts.create', ['users' => $userFromDB]);
     }
 
     public function store()
     {
         $data =request()->all();
 
-        // $title = request()->title;
-        // $description = request()->description;
-        // $posted_by = request()->posted_by;
-        // dd($data, $title, $description, $posted_by);
+        $title = request()->title;
+        $description = request()->description;
+        $posted_by = request()->posted_by;
+
+        $post = new Post;
+
+        $post->title       = $title;
+        $post->description = $description;
+
+        $post->save();
 
         return to_route('posts.index');
     }
