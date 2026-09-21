@@ -40,42 +40,57 @@ class PostController extends Controller
 
     public function store()
     {
-        $data =request()->all();
+        $data = request()->all();
 
-        $title = request()->title;
+        $title       = request()->title;
         $description = request()->description;
-        $posted_by = request()->posted_by;
+        $posted_by   = request()->posted_by;
 
-        $post = new Post;
+        // $post = new Post;
+        // $post->title       = $title;
+        // $post->description = $description;
+        // $post->save();
 
-        $post->title       = $title;
-        $post->description = $description;
-
-        $post->save();
+        // the other way
+        Post::create([
+            'title'       => $title,
+            'description' => $description,
+            'user_id'     => $posted_by
+        ]);
 
         return to_route('posts.index');
     }
 
-    public function edit($postId)
+    public function edit(Post $post)
     {
-        return view('posts.edit');
+        $user = User::all();
+
+        return view('posts.edit', ['users' => $user, 'post' => $post]);
     }
 
     public function update($postId)
     {
 
-        $title = request()->title;
+        $title       = request()->title;
         $description = request()->description;
-        $posted_by = request()->posted_by;
+        $posted_by   = request()->posted_by;
 
-        // dd($title, $description, $posted_by);
+        $singlePostFromDB = Post::find($postId);
 
-        return to_route('posts.show',1);
+        $singlePostFromDB->update([
+            'title'       => $title,
+            'description' => $description
+        ]);
+
+        return to_route('posts.show', $postId);
     }
 
     public function destroy($postId)
     {
+        $post = Post::find($postId);
+
+        $post->delete();
+
         return to_route('posts.index');
     }
-
 }
