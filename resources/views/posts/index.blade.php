@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('title') Index @endsection
-
 @section('content')
 
 <div class="container mb-4 d-flex justify-content-center">
