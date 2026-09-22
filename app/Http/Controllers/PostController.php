@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
-
-// use Illuminate\Http\Request;
-
 class PostController extends Controller
 {
     public function index()
@@ -40,7 +37,13 @@ class PostController extends Controller
 
     public function store()
     {
+        request()->validate([
+            'title'       => ['required', 'min:3'],
+            'description' => ['required', 'min:5'],
+            'posted_by'   => ['required', 'exists:users,id'],
 
+        ]);
+        
         $data = request()->all();
 
         $title       = request()->title;
