@@ -16,10 +16,9 @@
         <div class="card" style="margin-top: 20px;">
             <h5 class="card-header">Post Creator Info</h5>
             <div class="card-body">
-                
-                <h5 class="card-title">Name: {{$post->user ? $post->user->name : 'not found'}}</h5>
-                <p class="card-text">Email: {{$post->user ? $post->user->email: 'not found'}}</p>
-                <p class="card-text">Created At: {{$post->user ? $post->user->created_at: 'not found'}}</p>
+                <h5 class="card-title">Name: {{$post->user ? $post->user->name : "Not Found"}}</h5>
+                <p class="card-text">Email: {{$post->user ? $post->user->email : "Not Found"}}</p>
+                <p class="card-text">Created At: {{$post->user ? $post->user->created_at : "Not Found"}}</p>
             </div>
         </div>
     </div>

@@ -21,12 +21,12 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    @foreach ($Posts as $post)
+                    @foreach ($posts as $post)
                     <tr>
                         <td>{{$post->id}}</td>       {{-- <td>{{$post["id"]}}</td>  --}}
                         <td>{{$post->title}}</td>    {{-- <td>{{$post["title"]}}</td> --}}
-                        <td>{{$post->posted_by}}</td>
-                        <td>{{$post->Created_At}}</td>
+                        <td>{{$post->user ? $post->user->name : "Not Found"}}</td>
+                        <td>{{$post->user ? $post->user->created_at : "Not Found"}}</td>
                         <td>
                             <a href="{{route('posts.show', $post->id)}}"  class="btn btn-sm btn-success">View</a>
                             <a href="{{route('posts.edit', $post->id)}}" class="btn btn-sm btn-primary">Edit</a>

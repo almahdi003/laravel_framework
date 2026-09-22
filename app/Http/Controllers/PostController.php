@@ -13,7 +13,7 @@ class PostController extends Controller
     {
         $postsFromDB = Post::all();
 
-        return view('posts.index', ['Posts' => $postsFromDB]);
+        return view('posts.index', ['posts' => $postsFromDB]);
     }
 
     public function show(Post $post)
@@ -40,11 +40,13 @@ class PostController extends Controller
 
     public function store()
     {
+
         $data = request()->all();
 
         $title       = request()->title;
         $description = request()->description;
         $posted_by   = request()->posted_by;
+
 
         // $post = new Post;
         // $post->title       = $title;
@@ -79,7 +81,8 @@ class PostController extends Controller
 
         $singlePostFromDB->update([
             'title'       => $title,
-            'description' => $description
+            'description' => $description,
+            'user_id'     => $posted_by
         ]);
 
         return to_route('posts.show', $postId);

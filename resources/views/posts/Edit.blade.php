@@ -21,9 +21,9 @@
     <label class="form-label" for="posted_by">Posted By</label>
     <input type="text" class="form-control" id="posted_by" placeholder="Enter Your Name" name="posted_by">
   </div>
-  <select name="post_creator" class="form-control">
+  <select name="posted_by" class="form-control">
       @foreach ($users as $user)
-        <option value="{{$user->id}}"> {{$user->name}}</option>
+        <option @selected($user->id == $post->user_id) value="{{$user->id}}"> {{$user->name}}</option>
       @endforeach
   </select>
 
